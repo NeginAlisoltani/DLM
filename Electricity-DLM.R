@@ -40,8 +40,8 @@ population <- population_data$population
 
 # 2- Modelling
 ##########################################################################
-regressors <- cbind(crisis,lockdown, unlock,  temperature ,daylight, vacation, working,  population)
-colnames(regressors) <- c( "crisis", "lockdown", "unlock","temperature","daylight", "vacation" ,"working", "population")
+regressors <- cbind(war_crisis, lockdown, unlock,  temperature ,daylight)
+colnames(regressors) <- c("war_crisis", "lockdown", "unlock","temperature","daylight")
 
 fn <- function(parm, regressors) {
   
