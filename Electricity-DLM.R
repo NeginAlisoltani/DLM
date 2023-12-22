@@ -101,21 +101,6 @@ err_weekly_elec = c()
 temp_elec = c()
 err_temp_elec = c()
 
-#week
-week_elec = c()
-err_week_elec = c()
-
-#weekend
-weekend_elec = c()
-err_weekend_elec = c()
-
-#vacation
-vacation_elec = c()
-err_vacation_elec = c()
-
-#working
-working_elec = c()
-err_working_elec = c()
 
 #lockdown
 lockdown_elec = c()
@@ -133,10 +118,6 @@ err_crisis_elec = c()
 daylight_elec = c()
 err_daylight_elec = c()
 
-
-#population
-pop_elec = c()
-err_pop_elec = c()
 
 
 for (t in seq(1,length(inf))){
@@ -175,15 +156,4 @@ for (t in seq(1,length(inf))){
   daylight_elec = c(daylight_elec,t(smoothed$s[t,28])%*%XFF[28])
   err_daylight_elec = c(err_daylight_elec, XFF[28] %*% smoothed_error[[t]][28,28] %*% t(XFF[28]))
   
-  #exp: vacation
-  vacation_elec = c(vacation_elec,t(smoothed$s[t,29])%*%XFF[29])
-  err_vacation_elec = c(err_vacation_elec, XFF[29] %*% smoothed_error[[t]][29,29] %*% t(XFF[29]))
-  
-  #exp: working
-  working_elec = c(working_elec,t(smoothed$s[t,30])%*%XFF[30])
-  err_working_elec = c(err_working_elec, XFF[30] %*% smoothed_error[[t]][30,30] %*% t(XFF[30]))
-  
-  #exp: pop
-  pop_elec = c(pop_elec,t(smoothed$s[t,31])%*%XFF[31])
-  err_pop_elec = c(err_pop_elec, XFF[31] %*% smoothed_error[[t]][31,31] %*% t(XFF[31]))
 }
