@@ -48,11 +48,11 @@ fn <- function(parm, regressors) {
   mod <-  dlmModPoly(order = 1, dV = exp(parm[1])) + 
     dlmModSeas(frequency = 7) + 
     dlmModTrig(s = 365, q = 8) + 
-    dlmModReg(regressors, addInt = FALSE, dW = exp(parm[2:9]))
+    dlmModReg(regressors, addInt = FALSE, dW = exp(parm[2:6]))
   return(mod)
 }
 
-fit <- dlmMLE(inf, rep(0, 9), build = fn, hessian = TRUE, control = list(trace = TRUE, REPORT = 1), regressors = regressors)
+fit <- dlmMLE(inf, rep(0, 6), build = fn, hessian = TRUE, control = list(trace = TRUE, REPORT = 1), regressors = regressors)
 conv <- fit$convergence  # zero for converged
 
 loglik <- dlmLL(inf, fn(fit$par, regressors))
